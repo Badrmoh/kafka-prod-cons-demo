@@ -11,3 +11,7 @@ Kafka is a messaging and broker system that allows to send and receive real-time
 - Kubernetes: In Progress
 - Helm: Not Started
 - ArgoCD: Not Started
+## Author
+Badr Ibrahim: engbdr0@gmail.com
+## Contributors
+Please, don't overwrite any directory, rather push to a new directory with a descriptive title, or in a new branch.
