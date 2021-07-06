@@ -8,10 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    env:
+      DH_SECRET: ${{ secrets.DOCKERHUB_PASSWORD }}
+      DH_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
     steps:
       - uses: actions/checkout@v2
-      - run: echo ${{ secrets.DOCKERHUB_PASSWORD }}
+      - run: echo $DH_SECRET
       - name: build-push-prod-docker
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
