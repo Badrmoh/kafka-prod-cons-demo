@@ -3,13 +3,12 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-  workflow_dispatch:
-  
-  paths:
+    paths:
       - 'Dockerfile'
       - 'docker-compose.yaml'
       - 'python/**'
       - '.github/workflows/docker.yml'
+    workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
