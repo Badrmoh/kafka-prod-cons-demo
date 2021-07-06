@@ -53,6 +53,7 @@ jobs:
           # don't push during a pull_request, only build
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
+          push: ${{ github.event_name != 'pull_request' }}
           
       - name: Show image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -68,6 +69,7 @@ jobs:
           # don't push during a pull_request, only build
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
+          push: ${{ github.event_name != 'pull_request' }}
          
       - name: Show image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
