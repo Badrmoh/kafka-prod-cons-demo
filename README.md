@@ -1,4 +1,4 @@
-![Docker Build](https://github.com/badrmoh/kafka-prod-cons-demo/actions/workflows/docker/badge.svg)
+[![Build/Push Docker Images](https://github.com/Badrmoh/kafka-prod-cons-demo/actions/workflows/docker.yml/badge.svg)](https://github.com/Badrmoh/kafka-prod-cons-demo/actions/workflows/docker.yml)
 
 # A simple kafka environment in action
 
