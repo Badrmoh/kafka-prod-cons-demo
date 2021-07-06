@@ -10,7 +10,7 @@ on:
       - '.github/workflows/docker.yml'
     workflow_dispatch:
 jobs:
-  build docker images:
+  build-docker-images:
     runs-on: ubuntu-latest
     environment: 
           name: test
