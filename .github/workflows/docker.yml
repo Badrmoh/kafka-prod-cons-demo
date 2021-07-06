@@ -66,7 +66,7 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           # don't push during a pull_request, only build
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kafka-python-prod-demo:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kafka-python-cons-demo:latest
           push: ${{ github.event_name != 'pull_request' }}
          
       - name: Show image digest
