@@ -27,7 +27,7 @@ services:
   #   tty: true
 
   producer:
-    build: kafka-prod/
+    build: python/kafka-prod/
     image: kafka-prod-python
     ports:
       - "${FLASK_PORT:-5000}:${FLASK_PORT:-5000}"
@@ -41,7 +41,7 @@ services:
     stdin_open: true
 
   consumer:
-    build: kafka-cons/
+    build: python/kafka-cons/
     image: kafka-cons-python
     environment:
       KAFKA_SERVER: "${KAFKA_SERVER:-kafka}"
