@@ -13,21 +13,23 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build-push-prod-docker
-        uses: mr-smithers-excellent/docker-build-push@v4
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: badrmoh/kafka-prod-python-demo
           registry: docker.io
-          tags: latest
+          addLatest: true
           directory: docker-compose/kafka-prod/
+          dockerfile: docker-compose/kafka-prod/Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: build-push-cons-docker
-        uses: mr-smithers-excellent/docker-build-push@v4
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: badrmoh/kafka-cons-python-demo
           registry: docker.io
-          tags: latest
+          addLatest: true
           directory: docker-compose/kafka-cons/
+          dockerfile: docker-compose/kafka-prod/Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
