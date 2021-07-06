@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      - run: echo ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: build-push-prod-docker
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
