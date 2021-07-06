@@ -1,0 +1,33 @@
+name: Build/Push Docker Images
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: build-push-prod-docker
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: badrmoh/kafka-prod-python-demo
+          registry: docker.io
+          tags: latest
+          directory: docker-compose/kafka-prod/
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: build-push-cons-docker
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: badrmoh/kafka-cons-python-demo
+          registry: docker.io
+          tags: latest
+          directory: docker-compose/kafka-cons/
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
