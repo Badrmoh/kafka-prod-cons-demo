@@ -43,7 +43,7 @@ jobs:
       # this will build the images, once per platform, 
       # then push to both Docker Hub and GHCR
       - name: Build and push kafka producer image
-        id: docker_build
+        id: docker_build_producer
         uses: docker/build-push-action@v2
         with:
           context: python/kafka-prod
@@ -58,7 +58,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
         
       - name: Build and push kafka consumer image
-        id: docker_build
+        id: docker_build_consumer
         uses: docker/build-push-action@v2
         with:
           context: python/kafka-cons
