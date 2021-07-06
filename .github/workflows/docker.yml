@@ -39,7 +39,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}  
-      
+            
       # this will build the images, once per platform, 
       # then push to both Docker Hub and GHCR
       - name: Build and push kafka producer image
@@ -51,12 +51,11 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           # don't push during a pull_request, only build
-          tags: 'latest'
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kafka-python-prod-demo:latest
           push: ${{ github.event_name != 'pull_request' }}
           
       - name: Show image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+        run: echo ${{ steps.docker_build_producer.outputs.digest }}
         
       - name: Build and push kafka consumer image
         id: docker_build_consumer
@@ -67,9 +66,8 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           builder: ${{ steps.buildx.outputs.name }}
           # don't push during a pull_request, only build
-          tags: 'latest'
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kafka-python-prod-demo:latest
           push: ${{ github.event_name != 'pull_request' }}
          
       - name: Show image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+        run: echo ${{ steps.docker_build_consumer.outputs.digest }}
