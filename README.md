@@ -1,3 +1,5 @@
+![Docker Build](https://github.com/badrmoh/kafka-prod-cons-demo/actions/workflows/docker/badge.svg)
+
 # A simple kafka environment in action
 
 ## Description
