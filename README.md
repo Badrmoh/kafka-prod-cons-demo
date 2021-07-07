@@ -39,4 +39,4 @@ Not Started
 ## Author
 Badr Ibrahim: engbdr0@gmail.com
 ## Contributors
-Please, don't overwrite any directory, rather push to a new directory with a descriptive title, or in a new branch.
+Please, fork this repo and work on your copy.
