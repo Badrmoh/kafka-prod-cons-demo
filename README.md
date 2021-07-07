@@ -29,13 +29,18 @@ docker-compose -f docker-compose.yaml up
 docker-compose -f docker-compose-prebuilt.yaml build
 docker-compose -f docker-compose-prebuilt.yaml up
 ```
+
+Access the application on http://localhost:5000
 ### Kubernetes
 Under `Manifests` directory, each service has its own manifests that are statically configured.
 To use the manifests:
 ```
 kubectl apply -f manifests/namespace.yaml
 kubectl apply -f manifests/ --recursive
+kubectl port-forward svc/kafka-prod-service -n kafka-demo 5000:5000
 ```
+
+Access the application on http://localhost:5000
 ### Helm
 Not Started
 ### ArgoCD
