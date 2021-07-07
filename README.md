@@ -30,7 +30,12 @@ docker-compose -f docker-compose-prebuilt.yaml build
 docker-compose -f docker-compose-prebuilt.yaml up
 ```
 ### Kubernetes
-In Progress
+Under `Manifests` directory, each service has its own manifests that are statically configured.
+To use the manifests:
+```
+kubectl apply -f manifests/namespace.yaml
+kubectl apply -f manifests/ --recursive
+```
 ### Helm
 Not Started
 ### ArgoCD
