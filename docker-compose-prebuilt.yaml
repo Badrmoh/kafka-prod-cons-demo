@@ -48,8 +48,6 @@ services:
       PRODUCER_HOST: "${PRODUCER_HOST:-producer}"
       PRODUCER_PORT: "${FLASK_PORT:-5000}"
       PRODUCER_MSG_ENDPOINT: "${PRODUCER_MSG_ENDPOINT:-messages}"
-      FLASK_HOST: "${FLASK_HOST:-0.0.0.0}"
-      FLASK_PORT: "${FLASK_PORT:-5000}"
     tty: true
     stdin_open: true
 

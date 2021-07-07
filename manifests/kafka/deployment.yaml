@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-deployment
+  labels:
+    app: kafka-deployment
+  namespace: kafka-demo
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka
+      tag: wurstmeister
+  template:
+    metadata:
+      labels:
+        app: kafka
+        tag: wurstmeister
+    spec:
+      containers:
+      - name: kafka
+        image: wurstmeister/kafka
+        ports:
+        - containerPort: 9092
+        envFrom:
+          - configMapRef:
+              name: kafka-configmap
