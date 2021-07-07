@@ -39,4 +39,4 @@ Not Started
 ## Author
 Badr Ibrahim: engbdr0@gmail.com
 ## Contributors
-Please, fork this repo and work on your copy.
+Please, fork this repo and work on your copy. You can make a pull request, which will be reviewed before merging.
