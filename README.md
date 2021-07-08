@@ -2,7 +2,7 @@
 
 # A simple kafka environment in docker containers
 
-<a href="https://drive.google.com/uc?export=view&id=1jtmCgG99xC7zp-r7TN4KZ1Dbe4gwzkMs"><img src="https://drive.google.com/uc?export=view&id=1jtmCgG99xC7zp-r7TN4KZ1Dbe4gwzkMs" style="align:center;width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1jtmCgG99xC7zp-r7TN4KZ1Dbe4gwzkMs"><img src="https://drive.google.com/uc?export=view&id=1jtmCgG99xC7zp-r7TN4KZ1Dbe4gwzkMs" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
   
 ## Description
 Kafka is a messaging and broker system that allows to send and receive real-time events/data. Such system is used widely in several projects like Sentry. Kafka is distinguished for its ability to run as a distributed system and storing large amounts of data without losing performance. This demo project demonstrates kafka in action in a simple way by deploying services in side docker containers using different methods. Since this demo is part of the **Projects** initiative of the Suse Challenge Udacity Course, every collaborator is welcome to contribute using his own code.
