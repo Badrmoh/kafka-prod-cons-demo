@@ -1,11 +1,11 @@
-kafka-prod:
+prod:
   tolerations:
     - key: "arch"
       operator: "Equal"
       value: "armv7"
       effect: "NoExecute"
 
-kafka-cons:
+cons:
   tolerations:
     - key: "arch"
       operator: "Equal"
