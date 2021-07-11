@@ -50,6 +50,7 @@ helm install kafka-demo-chart ./helm --values ./values-python-only-on-pi.yaml --
 kubectl port-forward svc/kafka-prod-service -n kafka-demo 5000:5000
 ```
 Access the application on http://localhost:5000
+  
 2. To stop the app and delete the chart"
 ```bash
 helm delete kafka-demo-chart
