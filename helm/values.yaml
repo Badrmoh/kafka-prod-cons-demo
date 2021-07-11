@@ -1,0 +1,36 @@
+namespace:
+  name: kafka-demo
+
+kafka:
+  image:
+    name: wurstmeister/kafka
+    tag: latest
+  config:
+    topics: 'test:1:1'
+  service:
+    port: "9092"
+
+zookeeper:
+  image:
+    name: wurstmeister/zookeeper
+    tag: latest
+  service:
+    port: "2181"
+
+prod:
+  image:
+    name: badrmoh/kafka-python-prod-demo
+    tag: latest
+  config:
+    topic: "test"
+  service:
+    port: "5000"
+  replicaCount: 1
+
+cons:
+  image:
+    name: badrmoh/kafka-python-cons-demo
+    tag: latest
+  config:
+    topic: "test"
+  replicaCount: 1

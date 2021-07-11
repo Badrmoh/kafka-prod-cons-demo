@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper-deployment
+  labels:
+    app: zookeeper-deployment
+  namespace: {{ .Values.namespace.name }}
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+      tag: wurstmeister
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+        tag: wurstmeister
+    spec:
+      containers:
+      - name: zookeeper
+        image: {{ .Values.zookeeper.image.name }}:{{ .Values.zookeeper.image.tag }}
+        ports:
+        - containerPort: {{ .Values.zookeeper.service.port }}

@@ -1,0 +1,11 @@
+apiVersion: v1
+name: kafka-demo-deployment 
+description: Install kafka demo project deployment
+keywords:
+- kafka-demo
+sources:
+  - https://github.com/Badrmoh/kafka-prod-cons-demo
+version: 1.0.0
+maintainers:
+- name: Badr 
+  email: engbd0@gmail.com

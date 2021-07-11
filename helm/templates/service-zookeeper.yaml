@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zookeeper-service
+  name: zookeeper-service
+  namespace: {{ .Values.namespace.name }}
+spec:
+  ports:
+  - port: {{ .Values.zookeeper.service.port }}
+    protocol: TCP
+    targetPort: {{ .Values.zookeeper.service.port }}
+  selector:
+    app: zookeeper
+    tag: wurstmeister
+  type: ClusterIP

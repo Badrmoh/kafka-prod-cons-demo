@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-deployment
+  labels:
+    app: kafka-deployment
+  namespace: {{ .Values.namespace.name }}
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka
+      tag: wurstmeister
+  template:
+    metadata:
+      labels:
+        app: kafka
+        tag: wurstmeister
+    spec:
+      containers:
+      - name: kafka
+        image: {{ .Values.kafka.image.name }}:{{ .Values.kafka.image.tag }}
+        ports:
+        - containerPort: {{ .Values.kafka.service.port }}
+        envFrom:
+          - configMapRef:
+              name: kafka-configmap

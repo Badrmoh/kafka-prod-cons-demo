@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-prod-deployment
+  labels:
+    app: kafka-prod-deployment
+  namespace: {{ .Values.namespace.name }}
+
+spec:
+  replicas: {{ .Values.prod.replicaCount }}
+  selector:
+    matchLabels:
+      app: kafka-prod
+      tag: python
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: kafka-prod
+        tag: python
+    spec:
+      containers:
+      - name: kafka-prod
+        image: {{ .Values.prod.image.name }}:{{ .Values.prod.image.tag }}
+        ports:
+        - containerPort: {{ .Values.prod.service.port }}
+        envFrom:
+          - configMapRef:
+              name: kafka-prod-configmap
+      nodeSelector:
+{{ toYaml .Values.prod.nodeSelector | indent 8 }}
+      tolerations:
+{{ toYaml .Values.prod.tolerations | indent 8 }}

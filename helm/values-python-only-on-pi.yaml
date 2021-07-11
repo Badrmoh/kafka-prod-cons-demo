@@ -1,0 +1,17 @@
+prod:
+  nodeSelector:
+    arch: armv7
+  tolerations:
+    - key: "arch"
+      operator: "Equal"
+      value: "armv7"
+      effect: "NoExecute"
+
+cons:
+  nodeSelector:
+    arch: armv7
+  tolerations:
+    - key: "arch"
+      operator: "Equal"
+      value: "armv7"
+      effect: "NoExecute"

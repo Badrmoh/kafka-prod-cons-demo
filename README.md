@@ -44,7 +44,17 @@ kubectl port-forward svc/kafka-prod-service -n kafka-demo 5000:5000
 
 Access the application on http://localhost:5000
 ### Helm
-Not Started
+1. To use the chart:
+```bash
+helm install kafka-demo-chart ./helm --values ./values-python-only-on-pi.yaml --debug
+kubectl port-forward svc/kafka-prod-service -n kafka-demo 5000:5000
+```
+Access the application on http://localhost:5000
+2. To stop the app and delete the chart"
+```bash
+helm delete kafka-demo-chart
+```
+3. To use raspberry pi nodes, these nodes must be tainted with the taint `arch=armv7`, then values files available can be used.
 ### ArgoCD
 Not Started
 ---

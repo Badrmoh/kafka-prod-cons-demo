@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  KAFKA_SERVER: "kafka-service"
+  KAFKA_PORT: "{{ .Values.kafka.service.port }}"
+  KAFKA_TOPIC: "{{ .Values.cons.config.topic }}"
+  PRODUCER_HOST: "kafka-prod-service"
+  PRODUCER_PORT: "{{ .Values.prod.service.port }}"
+  PRODUCER_MSG_ENDPOINT: "messages"
+kind: ConfigMap
+metadata:
+  name: kafka-cons-configmap
+  namespace: {{ .Values.namespace.name }}
