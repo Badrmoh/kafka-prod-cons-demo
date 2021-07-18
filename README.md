@@ -28,7 +28,6 @@ docker-compose -f docker-compose.yaml up
 ```
 2. Use docker-compose with pre-built images
 ```bash
-docker-compose -f docker-compose-prebuilt.yaml build
 docker-compose -f docker-compose-prebuilt.yaml up
 ```
 
