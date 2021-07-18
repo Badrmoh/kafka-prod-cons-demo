@@ -28,7 +28,7 @@ services:
 
   producer:
     build:
-      dockerfile: Dockerfile
+      dockerfile: ../../Dockerfile
       context: python/kafka-prod/ 
     image: kafka-prod-python
     ports:
@@ -44,7 +44,7 @@ services:
 
   consumer:
     build: 
-      dockerfile: Dockerfile
+      dockerfile: ../../Dockerfile
       context: python/kafka-cons/
     image: kafka-cons-python
     environment:
