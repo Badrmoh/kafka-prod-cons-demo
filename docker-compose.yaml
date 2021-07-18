@@ -27,8 +27,9 @@ services:
   #   tty: true
 
   producer:
-    build: .
-    context: python/kafka-prod/ 
+    build:
+      dockerfile: Dockerfile
+      context: python/kafka-prod/ 
     image: kafka-prod-python
     ports:
       - "${FLASK_PORT:-5000}:${FLASK_PORT:-5000}"
@@ -42,8 +43,9 @@ services:
     stdin_open: true
 
   consumer:
-    build: .
-    context: python/kafka-cons/ 
+    build: 
+      dockerfile: Dockerfile
+      context: python/kafka-cons/
     image: kafka-cons-python
     environment:
       KAFKA_SERVER: "${KAFKA_SERVER:-kafka}"
